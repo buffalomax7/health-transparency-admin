@@ -43,7 +43,7 @@ How to handle 1 offs? CSV files etc.
 - first_seen_date: date
   - Basically, helpful for any hospital added after this date is probably using the latest version.
 
-## Processing Needed List
+## Work Queue List
 This is after we ran our ETL, if errors arise, how can we fix in a dashboard.
 - type_id
 - data: json
@@ -52,7 +52,7 @@ This is after we ran our ETL, if errors arise, how can we fix in a dashboard.
     - CPT_NOT_MATCHED = This would show information to help match this in the DB
     - PAYER_CONTRACT_NOT_FOUND = This would show contract information, etc.
 
-## Processing Needed Types List (DB needed or just array in config?)
+## Work Queue Types List (Table or just array?)
 - name: string (CPT_NOT_MATCHED, PAYER_CONTRACT_NOT_FOUND, etc)
 - description: string
 
@@ -73,7 +73,7 @@ This is after we ran our ETL, if errors arise, how can we fix in a dashboard.
 - gross_revenue: unsignedBigInteger
 - trauma_designation: string
 
-## Payer List
+## Payer Systems List - DONE
 - name: string
 - website: string
 - address: string
@@ -81,7 +81,7 @@ This is after we ran our ETL, if errors arise, how can we fix in a dashboard.
 - state: string
 - zip: string
 
-## Payer Subsidiaries List
+## Payer List - DONE
 - payer_id: unsignedBigInteger
 - name: string
 - website: string (nullable)
@@ -94,22 +94,22 @@ This is after we ran our ETL, if errors arise, how can we fix in a dashboard.
 - payer_subsidiary_id: unsignedBigInteger
 - type: string (HMO, PPO, etc)
 
-## HCPCS List (CMS for free?)
+## HCPCS List - DONE
 - code: string
-- name: string
-- description: string
+- short_description: string
+- long_description: string
 
-## Master CPT List (License needed?)
+## Master CPT List - DONE
 - code: string
-- name: string
-- description: string
+- short_description: string
+- long_description: string
 
-## Master DRG List (License needed?) (Same table as CPT?)
+## Master DRG List - DONE
 - code: string
-- name: string
-- description: string
+- short_description: string
+- long_description: string
 
-## Hospital Code Mapper List (Many to many needed?)
+## Hospital Code Mapper List (Many to many needed?) - DONE?
 - morphable_type(master_cpt_list || master_drg_list)
 - morphable_id
 - hospital_id: unsignedBigInteger
@@ -127,4 +127,7 @@ This is after we ran our ETL, if errors arise, how can we fix in a dashboard.
 - payer_subsidiary_contract_id
 - estimated_contract_type_id
 - confirmed_contract_type_id
-- 
+
+## Contract Categories List - DONE
+- name: string (HMO, PPO)
+- description: string, nullable

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Database\Eloquent\Relations\Relation;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Relation::enforceMorphMap([
+            "cpt" => "App\Models\CptCode",
+            "hcpcs" => "App\Models\HcpcsCode",
+            "drg" => "App\Models\DrgCode",
+        ]);
     }
 }
