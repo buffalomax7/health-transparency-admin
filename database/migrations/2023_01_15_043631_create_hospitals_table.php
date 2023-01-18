@@ -19,12 +19,14 @@ return new class extends Migration
             $table->unsignedBigInteger('transparency_provider_version_id')->nullable();
             $table->timestamp('last_crawled')->nullable();
             $table->string('crawl_status')->default('not-crawled');
+            $table->string('crawl_link', 1500);
             $table->string('name');
             $table->string('website')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('zip')->nullable();
+            $table->string('npi');
             $table->unsignedInteger('number_of_beds')->nullable();
             $table->unsignedBigInteger('gross_revenue')->nullable();
             $table->string('trauma_designation')->nullable();

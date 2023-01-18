@@ -20,15 +20,7 @@ How to handle 1 offs? CSV files etc.
 ## Transparency Providers List - DONE
 - name: string
   - CLARA_PRICE
-    - Version
-      - 1
-      - 2
-      - 3
   - HEALTH_PRICE_INDEX
-    - Version
-      - 1
-      - 2
-      - 3
   - CSV
     - Version
       - FCH_TEXAS
@@ -72,6 +64,10 @@ This is after we ran our ETL, if errors arise, how can we fix in a dashboard.
 - number_of_beds: unsignedInteger
 - gross_revenue: unsignedBigInteger
 - trauma_designation: string
+- crawler_link: string
+- last_crawled: datatime
+- last_updated: datetime
+- last_updated_given_by_file: datetime
 
 ## Payer Systems List - DONE
 - name: string
@@ -131,3 +127,18 @@ This is after we ran our ETL, if errors arise, how can we fix in a dashboard.
 ## Contract Categories List - DONE
 - name: string (HMO, PPO)
 - description: string, nullable
+
+## Crawl Links
+- crawl_linkable_type: string (MorphTo) (Hospital, Payer?)
+- crawl_linkable_id: int
+- providerable_type: string (Transparency Provider)
+- providerable_id: int 
+- url: string
+- status: string
+- 
+## Crawler
+- crawl_link_id: int
+- crawl_status: string (not-started, pending, finished, error)
+- filename: string
+- import_status: string (not-started, pending, finished, error)
+- data: json
